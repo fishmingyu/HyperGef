@@ -26,14 +26,14 @@ bash build.sh
 ```
 Download dataset
 ```bash
-cd HyperGef/data
+cd HyperGsys/data
 bash prepare.sh
 ```
 
 ### How to Run Model
 Run HGNN with our backend
 ```bash
-cd HyperGef
+cd HyperGsys
 ```
 ```python
 python ugsys.py --backend hgsys --model-name HGNN
@@ -46,7 +46,7 @@ python ugsys.py --backend pyg --model-name HGNN
 
 ### Run C++ Hyper Aggregation
 ```bash
-cd HyperGef/source
+cd HyperGsys/source
 make
 ./aggr_proto ../data/mtx_data/cora.mtx [feature_length,e.g: 32]
 ```
