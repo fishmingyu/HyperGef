@@ -1,3 +1,5 @@
+# revised from UniGNN(https://github.com/OneForward/UniGNN)
+
 from torch_scatter import scatter
 import torch.nn as nn
 import torch

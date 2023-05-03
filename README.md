@@ -1,7 +1,7 @@
-## HyperGNNSys
+## HyperGef
 
-This is a repo demo for a novel system for hyper graph nerual network. Here we focus on accelerating HGNNConv, a classic model for hypergraph GNN. 
-By kernel fusion and workload balance, our backend can bring significant speedup compared to SpMM backend. 
+This is a repo of Mlsys'23 paper[to apppear] HyperGef, a novel system of designing efficient fusion kernel for Hypergraph Nerual Network. Here we focus on accelerating [HGNNConv](https://ojs.aaai.org/index.php/AAAI/article/view/4235) and [UniGNNConv](https://arxiv.org/abs/2105.00956), which are classic models of hypergraph GNN. 
+By kernel fusion and workload balance, our backend can bring significant speedup compared to previous SpMM backend. We compare our implementation to the cuSPARSE baseline in the kernel setting, and compare to the PyG and DGL framework in the end2end setting.
 
 ### Requirement
 ```
@@ -13,6 +13,7 @@ pandas
 sklearn
 GPUtil
 ```
+Note that currently pyg don't support torch 2.0+, so make sure you use pytorch 1.x version. Also, please download the optional dependencies of pyg like torch_scatter and torch_sparse libraries. 
 
 ### Setup
 Please first config your ```$CUDA_HOME``` environment. It probably locates at ```/usr/local/cuda``` or something like that.
@@ -25,14 +26,14 @@ bash build.sh
 ```
 Download dataset
 ```bash
-cd HyperGsys/data
+cd HyperGef/data
 bash prepare.sh
 ```
 
 ### How to Run Model
 Run HGNN with our backend
 ```bash
-cd HyperGsys
+cd HyperGef
 ```
 ```python
 python ugsys.py --backend hgsys --model-name HGNN
@@ -45,7 +46,7 @@ python ugsys.py --backend pyg --model-name HGNN
 
 ### Run C++ Hyper Aggregation
 ```bash
-cd HyperGsys/source
+cd HyperGef/source
 make
 ./aggr_proto ../data/mtx_data/cora.mtx [feature_length,e.g: 32]
 ```
