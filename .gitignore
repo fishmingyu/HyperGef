@@ -1,0 +1,28 @@
+# Ignore all files without extension
+# Ignore all
+*
+
+# Unignore all with extensions
+!*.*
+
+# Unignore all dirs
+!*/
+!Makefile
+!*.mtx
+
+__pycache__
+*.zip
+*.txt
+*.csv
+*.log
+*.o
+*.a
+*.ncu-rep
+*pt
+
+# vscode file
+.vscode
+__pycache__
+build
+dist
+*.egg-info
